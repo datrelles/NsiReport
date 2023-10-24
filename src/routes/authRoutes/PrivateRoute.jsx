@@ -9,12 +9,12 @@ import { Footer } from '../../components/common/footer/Footer';
 export default function PrivateRoute() {
     const { isAuthenticated, role } = useAuthContext();
 
-    if (isAuthenticated && role === 'client') {
+    if (isAuthenticated && role === 'admin') {
         return (
             <>
                 <Nav />
-                <div className='relative h-[500px]'>
-                    <div className='absolute -z-20 w-full h-full'>
+                <div className='relative min-h-[800px]'>
+                    <div className='absolute  w-full h-full'>
                         < Outlet />
                     </div>
                 </div>

@@ -10,10 +10,10 @@ function Formulario() {
   // CONTEXTO LOGIN
   const { login, setAuthToken, setUserId } = useAuthContext();
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
     email: '',
     password: '',
-    role: 'admin'
+    role: 'client'
   });
   const [Loading, setLoading] = useState(false);
 
@@ -37,7 +37,7 @@ function Formulario() {
    
     //Validaciones de los campos:
     if (
-      !formData.fullName ||
+      !formData.name ||
       !formData.email ||
       !formData.password
     ) {
@@ -45,7 +45,7 @@ function Formulario() {
       return;
     }
 
-    if (/\d/.test(formData.fullName)) {
+    if (/\d/.test(formData.name)) {
       toast.error('El nombre no puede contener numeros')
       return;
     }
@@ -63,17 +63,16 @@ function Formulario() {
       try {
         setLoading(true);
         const userData = await postRegister(formData);
-        console.log(userData)
         toast.success('usuario REGISTRADO')
-        // setUserId(modelEnterpriceData.data.id);
-        // setAuthToken(enterpriceData.jwt);
-        // login('client');
+        setAuthToken(userData.token);
+        login(userData.role);
 
         // Limpia los campos del formulario después de un registro exitoso
         setFormData({
-          fullName: '',
+          name: '',
           email: '',
-          password: ''
+          password: '',
+          role: 'client'
         });
         setLoading(false);
 
@@ -97,10 +96,10 @@ function Formulario() {
         <div className="mb-4">
           <input
             className="appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="fullName"
+            id="name"
             type="text"
             placeholder="Nombres y Apellidos"
-            value={formData.fullName}
+            value={formData.name}
             onChange={handleChange}
           />
         </div>

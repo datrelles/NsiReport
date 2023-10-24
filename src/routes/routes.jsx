@@ -9,14 +9,18 @@ import {
     CATEGORY,
     TERMINOS,
     PRIVACY,
-    PRIVATE
+    PRIVATE,
+    CLIENT
 } from './paths'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { PublicRoute } from './authRoutes/PublicRoutes'
 import PrivateRoute from "./authRoutes/PrivateRoute";
+import ClientRoute from './authRoutes/ClientRoute'
 //
 import Register from '../components/users/admin/register';
 import SignIn from '../components/users/admin/login';
+import Home from '../components/home';
+import AdminDashBoard from '../components/users/admin/adminUser';
 
 const router = createBrowserRouter([
     {
@@ -25,7 +29,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <h1 className='text-3xl'>HOME</h1>
+                element:<Home/>
             },
             {
                 path: REGISTER,
@@ -69,11 +73,27 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <h1 className='text-3xl'> HOME PRIVADA </h1>
+                element: <AdminDashBoard/>
             },
 
         ]
 
+    },
+
+    {
+        path: CLIENT,
+        element: <ClientRoute />,
+        children: [
+            {
+                index: true,
+                element: <h1>HOME CLIENTE</h1>
+            },
+            {
+
+            }
+
+
+        ]
     },
 
     {

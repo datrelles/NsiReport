@@ -9,3 +9,5 @@ export const CATEGORIES = '/lab'
 export const TERMINOS='/terminos'
 export const PRIVACY='/privacy'
 export const CATEGORY='/tramites/:item'
+export const CLIENT ='/client'
+// export const 

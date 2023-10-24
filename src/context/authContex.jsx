@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useMemo, useState } from "react
 import PropTypes from 'prop-types';
 
 const MY_AUTH_PRADODENTAL = 'MY_AUTH_PRADODENTAL';
-const ROLES_STORAGE_KEY_HIVIMAR = 'ROLES';
+const ROLES_STORAGE_KEY_PRADODENTAL = 'ROLES';
 const KEY_JWT_PRADODENTAL = 'KEY_JWT_PRADODENTAL';
 const USER_ID_PRADODENTAL = 'USER_ID_PRADODENTAL';
 
@@ -15,7 +15,7 @@ export default function AuthContextProvider({ children }) {
     );
 
     const [role, setRole] = useState(() =>
-        window.localStorage.getItem(ROLES_STORAGE_KEY_HIVIMAR)
+        window.localStorage.getItem(ROLES_STORAGE_KEY_PRADODENTAL)
     );
 
     const [jwt, setJwt] = useState(() =>
@@ -28,14 +28,14 @@ export default function AuthContextProvider({ children }) {
 
     const login = useCallback((userRole) => {
         window.localStorage.setItem(MY_AUTH_PRADODENTAL, true);
-        window.localStorage.setItem(ROLES_STORAGE_KEY_HIVIMAR, userRole);
+        window.localStorage.setItem(ROLES_STORAGE_KEY_PRADODENTAL, userRole);
         setIsAuthenticated(true);
         setRole(userRole);
     }, []);
 
     const logout = useCallback(() => {
         window.localStorage.removeItem(MY_AUTH_PRADODENTAL);
-        window.localStorage.removeItem(ROLES_STORAGE_KEY_HIVIMAR);
+        window.localStorage.removeItem(ROLES_STORAGE_KEY_PRADODENTAL);
         window.localStorage.removeItem(KEY_JWT_PRADODENTAL);
         window.localStorage.removeItem(USER_ID_PRADODENTAL);
         setIsAuthenticated(false);

@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import logo from '../../../assets/logo.png'
 import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from 'react-router-dom';
-
+import { useAuthContext } from '../../../context/authContex';
 
 export const Nav = () => {
+    const { isAuthenticated, role, logout } = useAuthContext();
 
     const Routes = [
         { name: "NOSOTROS", route: "/our" },
@@ -34,29 +35,54 @@ export const Nav = () => {
                w-full -z-10 md:z-0 pl-2 transition-all duration-500 bg-white
                 ${open ? 'top-[10vh]' : 'top-[-420px]'}`}>
 
-                <ul className='md:flex flex-1'>
-                    {Routes.map((route) => (
-                        <Link to={route.route} key={route.name} >
-                            <li key={route.name} className='text-primary md:mx-8'>
-                                {route.name}
-                            </li>
-                        </Link>
-                    ))}
+                {isAuthenticated ?
+                    (
+                        <ul className='md:flex flex-1'>
+                        {/* {Routes.map((route) => (
+                            <Link to={route.route} key={route.name} >
+                                <li key={route.name} className='text-primary md:mx-8'>
+                                    {route.name}
+                                </li>
+                            </Link>
+                        ))} */}
+                    </ul>
+                    )
+                    :
+                    (
+                        <ul className='md:flex flex-1'>
+                            {Routes.map((route) => (
+                                <Link to={route.route} key={route.name} >
+                                    <li key={route.name} className='text-primary md:mx-8'>
+                                        {route.name}
+                                    </li>
+                                </Link>
+                            ))}
+                        </ul>
+                    )}
 
-                </ul>
 
-                <div className='flex flex-col md:block'>
-                    <Link to='/signin'>
-                        <button className='bg-primary h-10 w-32 md:mx-4 rounded-xl my-2'>
-                            Iniciar sesión
-                        </button>
-                    </Link>
-                    <Link to='/signup'>
-                    <button className='bg-secondary h-10 w-32 md:mx-4 mr-20 rounded-xl my-2'>
-                        Registrarme
+                {isAuthenticated ? (
+                    <button
+                        onClick={() => logout()}
+                        className='bg-secondary h-10 w-32 md:mx-4 mr-20 rounded-xl my-2 text-white font-semibold'>
+                        Cerrar sesión
                     </button>
-                    </Link>
-                </div>
+                ) : (
+                    <div className='flex flex-col md:block'>
+                        <Link to='/signin'>
+                            <button className='bg-primary h-10 w-32 md:mx-4 rounded-xl my-2 text-white font-semibold'>
+                                Iniciar sesión
+                            </button>
+                        </Link>
+                        <Link to='/signup'>
+                            <button className='bg-secondary h-10 w-32 md:mx-4 mr-20 rounded-xl my-2 text-white font-semibold'>
+                                Registrarme
+                            </button>
+                        </Link>
+                    </div>
+                )}
+
+
             </div>
 
         </div>

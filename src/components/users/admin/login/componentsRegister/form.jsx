@@ -27,7 +27,7 @@ function Formulario() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-   
+
     if (
       !formData.email ||
       !formData.password
@@ -46,12 +46,19 @@ function Formulario() {
 
     try {
       setLoading(true);
-      const enterpriceData = await postLogin(formData.email, formData.password);
-      toast.success('usuario LOGEADO')
+      const adminData = await postLogin(formData.email, formData.password)
+      if(adminData.token){
+        toast.success('usuario LOGEADO')
+        setAuthToken(adminData.token)
+        login(adminData.role)
+      }
       setFormData({
         email: '',
         password: '',
+        role: ''
       });
+
+
 
     } catch (error) {
       // Aquí puedes manejar los errores si la solicitud falla
@@ -60,7 +67,7 @@ function Formulario() {
         return;
       }
       toast.error(error.message);
-    }finally{
+    } finally {
       setLoading(false);
     }
   };
