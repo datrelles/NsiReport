@@ -32,8 +32,7 @@ export const postLogin = async (email, password) => {
   }
 }
 
-//
-
+// OBTENER TODOS LOS USUARIOS (CLIENTES)
 export const getUserAll = async (token) => {
   try {
 
@@ -43,6 +42,27 @@ export const getUserAll = async (token) => {
       },
     };
     const response = await axios.get(`${API_BASE_URL}/clients/all`, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}
+
+
+
+// OBTENER INFORMACION PERSONAL DE UN USUARIO
+export const getUserInfoByID = async (token, id) => {
+  try {
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.get(`${API_BASE_URL}/users/${id}/personal-information`, config);
     return response.data;
   } catch (error) {
     console.log(error)

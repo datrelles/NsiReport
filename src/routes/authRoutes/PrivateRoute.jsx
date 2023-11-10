@@ -14,7 +14,7 @@ export default function PrivateRoute() {
             <>
                 <Nav />
                 <div className='relative min-h-[800px]'>
-                    <div className='absolute  w-full h-full'>
+                    <div className='[absolute]  w-full h-full'>
                         < Outlet />
                     </div>
                 </div>

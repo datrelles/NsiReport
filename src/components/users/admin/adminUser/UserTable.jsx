@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { deleteUserById } from '../../../../services/api';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function UserTable({ users, token }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedUserId, setEditedUserId] = useState(null);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleDelete = async (id) => {
     try {
@@ -15,9 +19,10 @@ function UserTable({ users, token }) {
     }
   };
 
-  const handleEdit = (id) => {
-    setEditedUserId(id);
-    setIsEditing(true);
+  const handleNavigate = (id) => {
+    navigate(`${location.pathname}/${id}`);
+    // setEditedUserId(id);
+    // setIsEditing(true);
   };
 
   const handleCancelEdit = () => {
@@ -61,10 +66,10 @@ function UserTable({ users, token }) {
                 ) : (
                   <div>
                     <button
-                      onClick={() => handleEdit(user.id)}
+                      onClick={() => handleNavigate(user.id)}
                       className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2"
                     >
-                      Editar
+                      Ver Info
                     </button>
                     <button
                       onClick={() => handleDelete(user.id)}

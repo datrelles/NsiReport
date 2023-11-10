@@ -21,6 +21,7 @@ import Register from '../components/users/admin/register';
 import SignIn from '../components/users/admin/login';
 import Home from '../components/home';
 import AdminDashBoard from '../components/users/admin/adminUser';
+import Info from '../components/users/admin/info';
 
 const router = createBrowserRouter([
     {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <AdminDashBoard/>
+            },
+            {
+                path: ':id',
+                element: <Info/>
             },
 
         ]
