@@ -88,3 +88,21 @@ export const deleteUserById = async (token, id) => {
     throw new Error(errorMessage);
   }
 }
+
+// Update Informacion personal del usuario
+export const putInfoPersonalUser = async (token, body, id ) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.put(`${API_BASE_URL}/users/${id}/personal-information`, body, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}

@@ -33,7 +33,7 @@ function Info() {
                     Historial Medico
                 </div>
             </article>
-            {typeDasboard === 'datosPersonales' ?
+            {typeDasboard !== 'datosPersonales' ?
                 <DatosPersonales/>
             : 
                 <HistorialMedico/>

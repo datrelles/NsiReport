@@ -6,6 +6,16 @@ export const DATA_TABLE_Personal = {
     anestesia: 'Anestesia',
     fecha: 'Fecha',
 };
+export const DATA_TABLE_PersonalRows = [
+    [
+        { label: 'Alerta médica', field: 'alerta_medica'},
+        { label: 'Condición', field: 'condicion'},
+        { label: 'Premedicación', field: 'premedicacion'},
+        { label: 'Alergias', field: 'alergias'},
+        { label: 'Anestesia', field: 'anestesia'},
+        { label: 'Fecha', field: 'fecha'},
+    ]
+];
 export const DATA_TABLE_PersonalInformationRows = [
     [
         { label: 'Nombre', field: 'name', colSpan: 2 },

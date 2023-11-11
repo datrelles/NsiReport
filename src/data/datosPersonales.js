@@ -3,7 +3,7 @@ export const InputsPricipalData = [
         label: 'Alerta Médica', 
         placeholder: 'Alerta Médica',
         type: 'text',
-        name: 'alertaMedica',
+        name: 'alerta_medica',
         id: 'alertaMedica',
         required: true
     },
@@ -42,13 +42,12 @@ export const InputsPricipalData = [
     {
         label: 'Fecha', 
         placeholder: 'Fecha',
-        type: 'date',
+        type: 'text',
         name: 'fecha',
         id: 'fecha',
         required: true
     },
 ]
-
 export const InputsInfoPersonal = [
     {
         label: 'Nombre', 
@@ -62,7 +61,7 @@ export const InputsInfoPersonal = [
         label: 'Apellido Paterno', 
         placeholder: 'Apellido Paterno',
         type: 'text',
-        name: 'lastnamePaterno',
+        name: 'paternal_last_name',
         id: 'lastnamePaterno',
         required: true
     },
@@ -70,7 +69,7 @@ export const InputsInfoPersonal = [
         label: 'Apellido Materno', 
         placeholder: 'Apellido Materno',
         type: 'text',
-        name: 'lastnameMaterno',
+        name: 'maternal_last_name',
         id: 'lastnameMaterno',
         required: true
     },
@@ -78,7 +77,7 @@ export const InputsInfoPersonal = [
         label: 'Celular', 
         placeholder: 'Celular',
         type: 'text',
-        name: 'celular',
+        name: 'cell_phone',
         id: 'celular',
         required: true
     },
@@ -86,7 +85,7 @@ export const InputsInfoPersonal = [
         label: 'Tel. de Trabajo', 
         placeholder: 'Tel. de Trabajo',
         type: 'text',
-        name: 'telTrabajo',
+        name: 'work_phone',
         id: 'telTrabajo',
         required: true
     },
@@ -102,15 +101,15 @@ export const InputsInfoPersonal = [
         label: 'Edad', 
         placeholder: 'Edad',
         type: 'number',
-        name: 'edad',
+        name: 'age',
         id: 'edad',
         required: true
     },
     {
         label: 'Fecha de Nacimiento', 
         placeholder: 'Fecha de Nacimiento',
-        type: 'date',
-        name: 'fechaNacimiento',
+        type: 'text',
+        name: 'date_of_birth',
         id: 'fechaNacimiento',
         required: true
     },
@@ -118,7 +117,7 @@ export const InputsInfoPersonal = [
         label: 'Estatura (cm)', 
         placeholder: 'Estatura (cm)',
         type: 'number',
-        name: 'estatura',
+        name: 'height_cm',
         id: 'estatura',
         required: true
     },
@@ -126,7 +125,7 @@ export const InputsInfoPersonal = [
         label: 'Peso (kg)', 
         placeholder: 'Peso (kg)',
         type: 'number',
-        name: 'peso',
+        name: 'weight_kg',
         id: 'peso',
         required: true
     },
@@ -134,7 +133,7 @@ export const InputsInfoPersonal = [
         label: 'Género', 
         placeholder: 'Género',
         type: 'text',
-        name: 'genero',
+        name: 'gender',
         id: 'genero',
         required: true
     },
@@ -142,7 +141,7 @@ export const InputsInfoPersonal = [
         label: 'Nacionalidad', 
         placeholder: 'Nacionalidad',
         type: 'text',
-        name: 'nacionalidad',
+        name: 'nationality',
         id: 'nacionalidad',
         required: true
     },
@@ -150,7 +149,7 @@ export const InputsInfoPersonal = [
         label: 'Estado Civil', 
         placeholder: 'Estado Civil',
         type: 'text',
-        name: 'estadoCivil',
+        name: 'marital_status',
         id: 'estadoCivil',
         required: true
     },
@@ -158,7 +157,7 @@ export const InputsInfoPersonal = [
         label: 'Ocupación', 
         placeholder: 'Ocupación',
         type: 'text',
-        name: 'ocupacion',
+        name: 'occupation',
         id: 'ocupacion',
         required: true
     },
@@ -166,7 +165,7 @@ export const InputsInfoPersonal = [
         label: 'Dirección', 
         placeholder: 'Dirección',
         type: 'text',
-        name: 'direccion',
+        name: 'address',
         id: 'direccion',
         required: true
     },
@@ -174,7 +173,7 @@ export const InputsInfoPersonal = [
         label: 'Código Postal', 
         placeholder: 'Código Postal',
         type: 'text',
-        name: 'codigoPostal',
+        name: 'postal_code',
         id: 'codigoPostal',
         required: true
     },
@@ -182,7 +181,7 @@ export const InputsInfoPersonal = [
         label: 'Contacto en Caso de Emergencia', 
         placeholder: 'Contacto en Caso de Emergencia',
         type: 'text',
-        name: 'contactoEmergencia',
+        name: 'emergency_contact',
         id: 'contactoEmergencia',
         required: true
     },
@@ -190,7 +189,7 @@ export const InputsInfoPersonal = [
         label: 'Parentesco', 
         placeholder: 'Parentesco',
         type: 'text',
-        name: 'parentesco',
+        name: 'relationship',
         id: 'parentesco',
         required: true
     },
@@ -198,7 +197,7 @@ export const InputsInfoPersonal = [
         label: 'Teléfono de Emergencia', 
         placeholder: 'Teléfono de Emergencia',
         type: 'text',
-        name: 'telefonoEmergencia',
+        name: 'emergency_phone',
         id: 'telefonoEmergencia',
         required: true
     },
@@ -206,7 +205,7 @@ export const InputsInfoPersonal = [
         label: 'Teléfono y Dirección de Servicio Médico en Caso de Urgencia', 
         placeholder: 'Teléfono y Dirección de Servicio Médico en Caso de Urgencia',
         type: 'text',
-        name: 'servicioMedicoEmergencia',
+        name: 'emergency_medical_service',
         id: 'servicioMedicoEmergencia',
         required: true
     },
@@ -214,81 +213,80 @@ export const InputsInfoPersonal = [
         label: 'Aseguranza', 
         placeholder: 'Aseguranza',
         type: 'text',
-        name: 'aseguranza',
+        name: 'insurance',
         id: 'aseguranza',
         required: true
     }
 ];
-
 export const InputsTutorData = [
     {
         label: 'Nombre',
         placeholder: 'Nombre',
         type: 'text',
-        name: 'nombre',
+        name: 'name',
         id: 'nombre'
     },
     {
         label: 'Edad',
         placeholder: 'Edad',
         type: 'number',
-        name: 'edad',
+        name: 'age',
         id: 'edad'
     },
     {
         label: 'Parentesco',
         placeholder: 'Parentesco',
         type: 'text',
-        name: 'parentesco',
+        name: 'relationship',
         id: 'parentesco'
     },
     {
         label: 'Celular',
         placeholder: 'Celular',
         type: 'text',
-        name: 'celular',
+        name: 'cell_phone',
         id: 'celular'
     },
     {
         label: 'Apellido Paterno',
         placeholder: 'Apellido Paterno',
         type: 'text',
-        name: 'apellidoPaterno',
+        name: 'paternal_last_name',
         id: 'apellidoPaterno'
     },
     {
         label: 'Apellido Materno',
         placeholder: 'Apellido Materno',
         type: 'text',
-        name: 'apellidoMaterno',
+        name: 'maternal_last_name',
         id: 'apellidoMaterno'
     },
     {
         label: 'Correo Electrónico',
         placeholder: 'Correo Electrónico',
         type: 'email',
-        name: 'correoElectronico',
+        name: 'email',
         id: 'correoElectronico'
     },
     {
         label: 'Dirección',
         placeholder: 'Dirección',
         type: 'text',
-        name: 'direccion',
+        name: 'address',
         id: 'direccion'
     },
     {
         label: 'Ciudad',
         placeholder: 'Ciudad',
         type: 'text',
-        name: 'ciudad',
+        name: 'city',
         id: 'ciudad'
     },
     {
         label: 'Código Postal',
         placeholder: 'Código Postal',
         type: 'text',
-        name: 'codigoPostal',
+        name: 'postal_code',
         id: 'codigoPostal'
     }
 ];
@@ -296,228 +294,239 @@ export const InputsDentalInformation = [
     {
         label: '¿Le sangran sus encías al cepillarse?',
         type: 'text',
-        name: 'sangranEncias',
-        placeholder: 'Sí / No'
+        name: 'sangrado_encias',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Ha recibido tratamiento periodontal (de las encías)?',
         type: 'text',
-        name: 'tratamientoPeriodontal',
-        placeholder: 'Sí / No'
+        name: 'tratamiento_periodontal',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Ha recibido tratamiento de ortodoncia (frenos)?',
         type: 'text',
-        name: 'tratamientoOrtodoncia',
-        placeholder: 'Sí / No'
+        name: 'tratamiento_ortodoncia',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Tiene dientes sensibles al frío, calor, dulce o a la presión?',
         type: 'text',
-        name: 'dientesSensibles',
-        placeholder: 'Sí / No'
+        name: 'dientes_sensibles',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Siente flojo alguno de sus dientes?',
         type: 'text',
-        name: 'dientesFlojos',
-        placeholder: 'Sí / No'
+        name: 'dientes_flojos',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Tiene dolor de oído o de cuello?',
         type: 'text',
-        name: 'dolorOidoCuello',
-        placeholder: 'Sí / No'
+        name: 'dolor_oido_o_cuello',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Usa prótesis dentales removibles (aparatos)?',
         type: 'text',
-        name: 'usaProtesisDentales',
-        placeholder: 'Sí / No'
+        name: 'usa_dentadura',
+        placeholder: 'Si / No / No Se'
     },
     {
-        label: '¿Ha tenido alguna experiencia desagradable en tratamientos dentales recibidos anteriormente? ¿Cuál?',
+        label: '¿Ha tenido alguna experiencia desagradable en tratamientos dentales recibidos anteriormente?',
         type: 'text',
-        name: 'experienciaDesagradable',
+        name: 'experiencia_dental_desagradable',
+        placeholder: 'Si / No / No Se'
+    },
+    {
+        label: '¿Describa su experiencia dental desagradable?',
+        type: 'text',
+        name: 'descripcion_experiencia_desagradable',
         placeholder: 'Explique'
     },
     {
         label: '¿Cuál es el motivo de su consulta?',
         type: 'text',
-        name: 'motivoConsulta',
+        name: 'motivo_consulta',
         placeholder: 'Explique'
     },
     {
         label: 'Fecha de su última consulta dental:',
-        type: 'date',
-        name: 'fechaUltimaConsultaDental',
-        placeholder: 'Fecha'
+        type: 'text',
+        name: 'fecha_ultima_consulta',
+        placeholder: 'dd/mm/yyyy'
     },
     {
         label: '¿Cuál fue el tratamiento que le hicieron esa vez?',
         type: 'text',
-        name: 'tratamientoUltimaConsulta',
+        name: 'tratamiento_anterior',
         placeholder: 'Explique'
     },
     {
         label: 'Fecha de sus últimos rayos X dentales:',
-        type: 'date',
-        name: 'fechaUltimosRayosX',
-        placeholder: 'Fecha'
+        type: 'text',
+        name: 'fecha_ultimos_rayos_x',
+        placeholder: 'dd/mm/yyyy'
     },
     {
         label: '¿Cuántas veces al día cepilla sus dientes?',
         type: 'number',
-        name: 'vecesCepillaDientes',
+        name: 'veces_cepillado_diario',
         placeholder: 'Número de veces'
     },
     {
         label: '¿Usa el hilo dental?',
         type: 'text',
-        name: 'usaHiloDental',
-        placeholder: 'Sí / No'
+        name: 'usa_hilo_dental',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Anteriormente le han enseñado la técnica de cepillado y de uso del hilo dental?',
         type: 'text',
-        name: 'ensenanzaTecnicaCepilladoHiloDental',
-        placeholder: 'Sí / No'
+        name: 'tecnica_cepillado_hilo_dental_ensenada',
+        placeholder: 'Si / No / No Se'
     }
 ];
 export const InputsMedicalInformationQuestions = [
     {
         label: '¿Tuberculosis activa?',
         type: 'text',
-        name: 'tuberculosisActiva',
-        placeholder: 'Sí / No'
+        name: 'tuberculosis_activa',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Tos persistente por más de tres semanas?',
         type: 'text',
-        name: 'tosPersistente',
-        placeholder: 'Sí / No'
+        name: 'tos_persistente',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Tos que produce sangre?',
         type: 'text',
-        name: 'tosConSangre',
-        placeholder: 'Sí / No'
+        name: 'tos_con_sangre',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Toma bebidas alcohólicas?',
         type: 'text',
-        name: 'tomaAlcohol',
-        placeholder: 'Sí / No'
+        name: 'toma_bebidas_alcoholicas',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Fuma?',
         type: 'text',
         name: 'fuma',
-        placeholder: 'Sí / No'
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Usa drogas?',
         type: 'text',
-        name: 'usaDrogas',
-        placeholder: 'Sí / No'
+        name: 'usa_drogas',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Tiene dependencia al alcohol o drogas?',
         type: 'text',
-        name: 'dependenciaAlcoholDrogas',
-        placeholder: 'Sí / No'
+        name: 'dependencia_alcohol_drogas',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Ha cambiado su salud durante los dos años pasados?',
         type: 'text',
-        name: 'cambioSaludDosAnios',
-        placeholder: 'Sí / No'
+        name: 'cambio_salud_ultimos_dos_anios',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Actualmente se encuentra bajo tratamiento médico?',
         type: 'text',
-        name: 'bajoTratamientoMedico',
-        placeholder: 'Sí / No'
+        name: 'bajo_tratamiento_medico',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿De qué enfermedad está siendo tratado?',
         type: 'text',
-        name: 'enfermedadTratamiento',
+        name: 'enfermedad_en_tratamiento',
         placeholder: 'Explique'
     },
     {
         label: '¿Padece alguna alergia o es alérgico a algún medicamento?',
         type: 'text',
-        name: 'alergicoMedicamento',
-        placeholder: 'Sí / No'
+        name: 'alergico_medicamento',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Especifique a cuál y el tipo de reacción',
         type: 'text',
-        name: 'alergiasDescripcion',
+        name: 'alergias_descripcion',
         placeholder: 'Explique'
     },
     {
         label: '¿Tiene buen estado de salud general?',
         type: 'text',
-        name: 'buenEstadoSalud',
-        placeholder: 'Sí / No'
+        name: 'buen_estado_salud_general',
+        placeholder: 'Si / No / No Se'
     },
     {
-        label: '¿Toma o ha tomado algún medicamento recientemente? ¿Cuál?',
+        label: '¿Toma o ha tomado algún medicamento recientemente?',
         type: 'text',
-        name: 'medicamentoReciente',
+        name: 'medicamento_reciente',
         placeholder: 'Explique'
     },
     {
-        label: '¿Para qué lo toma?',
+        label: '¿Cuál? ¿Para qué lo toma?',
         type: 'text',
-        name: 'motivoMedicamento',
+        name: 'motivo_medicamento',
         placeholder: 'Explique'
     },
     {
         label: '¿Le ha recomendado el médico o dentista anterior que tome antibiótico antes de recibir tratamiento dental?',
         type: 'text',
-        name: 'recomendacionAntibiotico',
-        placeholder: 'Sí / No'
+        name: 'recomendacion_antibiotico',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Qué antibiótico y qué dosis?',
         type: 'text',
-        name: 'tipoDosisAntibiotico',
+        name: 'tipo_y_dosis_antibiotico',
         placeholder: 'Explique'
     },
     {
         label: '¿Ha sido hospitalizado en los dos últimos años?',
         type: 'text',
-        name: 'hospitalizacionUltimosAnios',
-        placeholder: 'Sí / No'
+        name: 'hospitalizacion_ultimos_dos_anios',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Le han reemplazado alguna articulación (cadera, rodilla, codo, dedo)?',
         type: 'text',
-        name: 'reemplazoArticulacion',
-        placeholder: 'Sí / No'
+        name: 'reemplazo_articulacion',
+        placeholder: 'Si / No / No Se'
     }
 ];
-
 export const InputsMedicalInformationQuestionsMujeres = [
     {
         label: '¿Está o pudiera estar embarazada?',
         type: 'text',
-        name: 'embarazada',
-        placeholder: 'Sí / No'
+        name: 'embarazo',
+        placeholder: 'Si / No / No Se'
     },
     {
         label: '¿Está amamantando?',
         type: 'text',
         name: 'amamantando',
-        placeholder: 'Sí / No'
+        placeholder: 'Si / No / No Se'
     },
     {
-        label: '¿Está tomando anticonceptivos u hormonas? ¿Cuál?',
+        label: '¿Está tomando anticonceptivos u hormonas?',
         type: 'text',
-        name: 'anticonceptivosHormonas',
+        name: 'anticonceptivos_hormonas',
+        placeholder: 'Si / No / No Se'
+    },
+    {
+        label: '¿Cuál?',
+        type: 'text',
+        name: 'cual_anticonceptivos_hormonas',
         placeholder: 'Explique'
     }
 ]
