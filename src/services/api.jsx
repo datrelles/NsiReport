@@ -51,6 +51,21 @@ export const getUserAll = async (token) => {
   }
 }
 
+export const deleteUserById = async (token, id) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.delete(`${API_BASE_URL}/users/${id}`, config);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
 
 
 // OBTENER INFORMACION PERSONAL DE UN USUARIO
@@ -72,23 +87,6 @@ export const getUserInfoByID = async (token, id) => {
   }
 }
 
-
-export const deleteUserById = async (token, id) => {
-  try {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const response = await axios.delete(`${API_BASE_URL}/users/${id}`, config);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    const errorMessage = error.message;
-    throw new Error(errorMessage);
-  }
-}
-
 // Update Informacion personal del usuario
 export const putInfoPersonalUser = async (token, body, id ) => {
   try {
@@ -98,6 +96,44 @@ export const putInfoPersonalUser = async (token, body, id ) => {
       },
     };
     const response = await axios.put(`${API_BASE_URL}/users/${id}/personal-information`, body, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}
+
+
+// OBTENER HISTORIAL MEDICO DE UN USUARIO
+export const getHistorialMedicoUserByID = async (token, id) => {
+  try {
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.get(`${API_BASE_URL}/users/${id}/historial-medico`, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}
+
+// Update HISTORIAL MEDICO del usuario
+export const putHistorialMedicoUser = async (token, body, id ) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.put(`${API_BASE_URL}/users/${id}/historial-medico`, body, config);
     return response.data;
   } catch (error) {
     console.log(error)

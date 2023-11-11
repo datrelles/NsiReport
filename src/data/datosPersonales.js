@@ -530,3 +530,4 @@ export const InputsMedicalInformationQuestionsMujeres = [
         placeholder: 'Explique'
     }
 ]
+

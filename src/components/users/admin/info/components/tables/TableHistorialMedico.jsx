@@ -63,14 +63,14 @@ export default function TableHistorialMedico({data}) {
                                             <ParamsTableOptions
                                                 key={colIndex}
                                                 label={`${field.label} `}
-                                                selectedOption={'si'} //historialMedico.dentalhealthanswers[field.field]
+                                                selectedOption={historialMedico.historial_medico[field.field]}
                                             />
                                             :
                                             <ParamsTable
                                                 key={colIndex}
                                                 colSpan={field.colSpan}
                                                 label={`${field.label} `}
-                                                text={'NULL'} //historialMedico.parentorguardianofpatient[field.field] || 
+                                                text={historialMedico.historial_medico[field.field] || 'NULL'}
                                             />
                                         }
                                     </>
@@ -102,7 +102,7 @@ export default function TableHistorialMedico({data}) {
                                 key={colIndex}
                                 colSpan={field.colSpan}
                                 label={`${field.label}`}
-                                text={historialMedico.parentorguardianofpatient[field.field] || ''}
+                                text={historialMedico.dentistahistorialmedico[field.field] || ''}
                             />
                             ))}
                         </tr>

@@ -37,9 +37,9 @@ export const ParamsTableOptions = ({label, text, selectedOption, classNameTD, co
 export const ParamsTableUniqueLine = ({label, text, classNameTD, colSpan, rowSpan}) => {
     return (
         <td className={`!border-none ${classNameTD}`} rowSpan={rowSpan} colSpan={colSpan} >
-            <div className='flex flex-row w-full'>
+            <div className='flex flex-row w-full gap-2'>
                 <h4 className='text-xs text-gray-900 font-semibold w-max'>{label}</h4>
-                <p className='text-sm mb-auto border-b border-black w-full'><span className='text-transparent'>.</span>{text}</p>
+                <p className='text-sm border-b border-gray-500 w-full text-gray-800 min-h-[3.5ch]'>{text}</p>
             </div>
         </td>
     )
