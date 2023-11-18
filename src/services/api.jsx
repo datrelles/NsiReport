@@ -86,7 +86,6 @@ export const getUserInfoByID = async (token, id) => {
 
   }
 }
-
 // Update Informacion personal del usuario
 export const putInfoPersonalUser = async (token, body, id ) => {
   try {
@@ -104,8 +103,6 @@ export const putInfoPersonalUser = async (token, body, id ) => {
 
   }
 }
-
-
 // OBTENER HISTORIAL MEDICO DE UN USUARIO
 export const getHistorialMedicoUserByID = async (token, id) => {
   try {
@@ -124,7 +121,6 @@ export const getHistorialMedicoUserByID = async (token, id) => {
 
   }
 }
-
 // Update HISTORIAL MEDICO del usuario
 export const putHistorialMedicoUser = async (token, body, id ) => {
   try {
@@ -142,3 +138,63 @@ export const putHistorialMedicoUser = async (token, body, id ) => {
 
   }
 }
+
+
+// Obtener archivos de un usuario
+export const uploadFile = async (token, id, body) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.post(`${API_BASE_URL}/file/upload/${id}`, body, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}
+// Obtener archivos de un usuario
+export const getFile = async (token, id ) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.get(`${API_BASE_URL}/file/${id}`, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}
+
+// Obtener un archivo de un usuario
+export const getFileByCategory = async (token, user_id, category) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    console.log({
+      url: `${API_BASE_URL}/file/by-category/${user_id}/${category}`,
+      category,
+      user_id,
+    })
+    const response = await axios.get(`${API_BASE_URL}/file/by-category/${user_id}/${category}`);
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+};
+

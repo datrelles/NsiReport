@@ -63,9 +63,11 @@ function Formulario() {
       try {
         setLoading(true);
         const userData = await postRegister(formData);
+        console.log(userData.id)
         toast.success('usuario REGISTRADO')
         setAuthToken(userData.token);
         login(userData.role);
+        setUserId(userData.id)
 
         // Limpia los campos del formulario después de un registro exitoso
         setFormData({

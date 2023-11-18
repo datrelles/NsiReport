@@ -50,6 +50,7 @@ function Formulario() {
       if(adminData.token){
         toast.success('usuario LOGEADO')
         setAuthToken(adminData.token)
+        setUserId(adminData.id)
         login(adminData.role)
       }
       setFormData({

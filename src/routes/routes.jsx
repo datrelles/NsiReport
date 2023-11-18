@@ -22,6 +22,9 @@ import SignIn from '../components/users/admin/login';
 import Home from '../components/home';
 import AdminDashBoard from '../components/users/admin/adminUser';
 import Info from '../components/users/admin/info';
+import HomeClient from '../components/users/client';
+import DatosPersonalesClient from '../components/users/client/views/DatosPersonalesClient';
+import HistorialMedicoClient from '../components/users/client/views/HistorialMedicoClient';
 
 const router = createBrowserRouter([
     {
@@ -91,13 +94,16 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <h1>HOME CLIENTE</h1>
+                element: <HomeClient />
             },
             {
-
-            }
-
-
+                path: 'datos-personales',
+                element: <DatosPersonalesClient/>
+            },
+            {
+                path: 'historial-medico',
+                element: <HistorialMedicoClient/>
+            },
         ]
     },
 

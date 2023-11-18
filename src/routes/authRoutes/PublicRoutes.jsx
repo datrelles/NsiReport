@@ -23,7 +23,7 @@ export const PublicRoute = () => {
                 <Nav />
 
                 <div className='relative '>
-                    <div className='absolute -z-20 w-full h-full'>
+                    <div className='[absolute] -z-20 w-full h-full'>
                         <Outlet />
                         <Footer />
                     </div>
