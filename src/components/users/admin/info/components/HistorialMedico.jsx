@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TableHistorialMedico from './tables/TableHistorialMedico'
 import { useParams } from 'react-router-dom';
 import { useAuthContext } from '../../../../../context/authContex';
-import { getHistorialMedicoUserByID, getUserInfoByID, putInfoPersonalUser } from '../../../../../services/api';
+import { getHistorialMedicoUserByID, putHistorialMedicoUser } from '../../../../../services/api';
 import PopupForms from './PopupForms';
 import Input from '../../../../common/inputs/Input';
 import { Inputs_DentistaHistorialMedico, Inputs_HistorialMedico } from '../../../../../data/inputsHistorialMedico';
@@ -58,8 +58,7 @@ export default function HistorialMedico() {
     e.preventDefault()
 
     try {
-      const response = await putInfoPersonalUser(jwt, fetchData, id);
-      // console.log(response)
+      const response = await putHistorialMedicoUser(jwt, fetchData, id);
       handleDesactivePopupCreate();
     } catch (error) {
       console.error(error)
@@ -142,6 +141,7 @@ export default function HistorialMedico() {
                 <button
                   className='border rounded-md w-full py-2 px-4 text-white font-semibold bg-green-500 hover:bg-green-600'
                   type="submit"
+                  // onClick={handleDesactivePopupCreate}
                 >Guardar</button>
                 {!buttonSend &&
                   <button
