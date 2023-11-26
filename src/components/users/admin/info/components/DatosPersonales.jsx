@@ -1,12 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Input from '../../../../common/inputs/Input'
 import PopupForms from './PopupForms'
-import { InputsDentalInformation, InputsInfoPersonal, InputsMedicalInformationQuestions, InputsMedicalInformationQuestionsMujeres, InputsPricipalData, InputsTutorData } from '../../../../../data/datosPersonales'
+import {
+  InputsDentalInformation,
+  InputsInfoPersonal,
+  InputsMedicalInformationQuestions,
+  InputsMedicalInformationQuestionsMujeres,
+  InputsPricipalData,
+  InputsTutorData
+} from '../../../../../data/datosPersonales'
 import TableDatosPersonales from './tables/TableDatosPersonales';
 import { useParams } from 'react-router-dom';
 import { useAuthContext } from '../../../../../context/authContex';
 import { getUserInfoByID, putInfoPersonalUser } from '../../../../../services/api';
 import ButtonDownloadFile from './ButtonDownloadFile';
+import ButtonCreate from './ButtonCreate';
 
 export default function DatosPersonales() {
 
@@ -102,10 +110,7 @@ export default function DatosPersonales() {
   return (
     <div className='pt-6 relative'>
       <section className='flex flex-row gap-10 px-10'>
-        <button
-          className='rounded-md shadow-sm w-fit bg-slate-900 text-white cursor-pointer p-2'
-          onClick={handleActivePopupCreate}
-        >Crear</button>
+        <ButtonCreate onClick={handleActivePopupCreate} />
         <ButtonDownloadFile category={'Datos Personales'} />
       </section>
 

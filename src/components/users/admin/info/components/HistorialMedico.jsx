@@ -7,6 +7,7 @@ import PopupForms from './PopupForms';
 import Input from '../../../../common/inputs/Input';
 import { Inputs_DentistaHistorialMedico, Inputs_HistorialMedico } from '../../../../../data/inputsHistorialMedico';
 import ButtonDownloadFile from './ButtonDownloadFile';
+import ButtonCreate from './ButtonCreate';
 
 export default function HistorialMedico() {
 
@@ -83,10 +84,7 @@ export default function HistorialMedico() {
   return (
     <div className='pt-6 relative'>
       <section className='flex flex-row gap-10 px-10'>
-        <button
-          className='rounded-md shadow-sm w-fit bg-slate-900 text-white cursor-pointer p-2'
-          onClick={handleActivePopupCreate}
-        >Crear</button>
+        <ButtonCreate onClick={handleActivePopupCreate} />
         <ButtonDownloadFile category={'Historial Medico'} />
       </section>
 

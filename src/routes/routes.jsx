@@ -98,6 +98,18 @@ const router = createBrowserRouter([
                         path: 'historial-medico',
                         element: <HistorialMedico />
                     },
+                    {
+                        path: 'diagnostico-dental',
+                        element: <HistorialMedico />
+                    },
+                    {
+                        path: 'carta-consentimiento',
+                        element: <HistorialMedico />
+                    },
+                    {
+                        path: 'tratamiento',
+                        element: <HistorialMedico />
+                    },
                 ]
             },
 

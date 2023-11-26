@@ -2,16 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import Logo from '../../../../../../assets/logo.png'
 
 import { useReactToPrint } from "react-to-print";
-import { 
-    DATA_TABLE_MedicalInformationRows,
-    DATA_TABLE_ParentGuardianRows, 
-    DATA_TABLE_PentalHealthAnswersRows,
-    DATA_TABLE_PersonalInformationRows,
-    DATA_TABLE_PersonalRows
-} from './dataTablePersonal';
 
 import { ParamsTable, ParamsTableOptions, ParamsTableUniqueLine } from '../TDsTables';
 import { DATA_TABLE_DentistaRows, DATA_TABLE_HistorialMedicoRows } from './dataTableInformacionMedica';
+import ButtonImprimir from '../ButtonImprimir';
 
 
 export default function TableHistorialMedico({data}) {
@@ -30,11 +24,7 @@ export default function TableHistorialMedico({data}) {
     
   return (
     <section className='w-full'>
-        <button
-            className='border shadow-sm rounded-md absolute right-10 top-6 ml-auto py-2 px-4 hover:bg-slate-500 hover:text-white'
-            onClick={exportToPDF}
-        >Exportar o Imprimir</button>
-        
+        <ButtonImprimir onClick={exportToPDF} />
 
         {historialMedico !== null ? 
             <div ref={tablesRef} className='p-10'>

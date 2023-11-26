@@ -11,6 +11,7 @@ import {
 } from './dataTablePersonal';
 
 import { ParamsTable, ParamsTableOptions } from '../TDsTables';
+import ButtonImprimir from '../ButtonImprimir';
 
 
 export default function TableDatosPersonales({data}) {
@@ -30,11 +31,7 @@ export default function TableDatosPersonales({data}) {
     
   return (
     <section className='w-full'>
-        <button
-            className='border shadow-sm rounded-md absolute right-10 top-6 ml-auto py-2 px-4 hover:bg-slate-500 hover:text-white'
-            onClick={exportToPDF}
-        >Exportar o Imprimir</button>
-        
+        <ButtonImprimir onClick={exportToPDF} />
 
         {personalInfoUser !== null ? 
             <div ref={tablesRef} className='p-10'>
