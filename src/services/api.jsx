@@ -198,3 +198,61 @@ export const getFileByCategory = async (token, user_id, category) => {
   }
 };
 
+
+// Obtener todas las agendas
+export const getAgendaAll = async (token) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.get(`${API_BASE_URL}/agenda/all`, config);
+    
+    const formattedResponse = response.data.map(row => {
+      const startDate = new Date(row.start);
+      const endDate = new Date(row.end);
+
+      return {
+        ...row,
+        start: startDate,
+        end: endDate,
+      };
+    });
+
+    return formattedResponse;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+// Obtener todas las agendas
+export const getAgendaById = async (userId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/agenda/user/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+// Crear una agenda
+export const postAgenda = async (token, body) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    console.log(body);
+    const response = await axios.post(`${API_BASE_URL}/agenda`, body, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+
+  }
+}

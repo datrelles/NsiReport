@@ -25,6 +25,9 @@ import Info from '../components/users/admin/info';
 import HomeClient from '../components/users/client';
 import DatosPersonalesClient from '../components/users/client/views/DatosPersonalesClient';
 import HistorialMedicoClient from '../components/users/client/views/HistorialMedicoClient';
+import DatosPersonales from '../components/users/admin/info/components/DatosPersonales';
+import HistorialMedico from '../components/users/admin/info/components/HistorialMedico';
+import AppointmentManagement from '../components/users/admin/appointmentManagement';
 
 const router = createBrowserRouter([
     {
@@ -80,8 +83,22 @@ const router = createBrowserRouter([
                 element: <AdminDashBoard/>
             },
             {
+                path: 'agendar-cita',
+                element: <AppointmentManagement />
+            },
+            {
                 path: ':id',
-                element: <Info/>
+                element: <Info/>,
+                children: [
+                    {
+                        path: 'datos-personales',
+                        element: <DatosPersonales />
+                    },
+                    {
+                        path: 'historial-medico',
+                        element: <HistorialMedico />
+                    },
+                ]
             },
 
         ]

@@ -21,6 +21,12 @@ function AdminDashBoard() {
 
     return (
         <div>
+            <button>
+                <a 
+                    className='font-bold hover:text-cyan-600'
+                    href="user/agendar-cita"
+                >Gestionar Citas</a>
+            </button>
             <UserTable users={users} token={jwt} />
         </div>
     );

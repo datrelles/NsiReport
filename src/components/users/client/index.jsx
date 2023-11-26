@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { getFile, uploadFile } from '../../../services/api';
+import { getAgendaById, getFile, uploadFile } from '../../../services/api';
 import { useAuthContext } from '../../../context/authContex';
+import TableAgenda from './components/TableAgenda';
 
 export default function HomeClient() {
     
@@ -61,27 +62,53 @@ export default function HomeClient() {
 
 
     return (
-        <div className='px-4 py-10 flex flex-row items-center justify-center gap-10'>
-            {fetchData.length > 0 ? (
-                <>
-                    {fetchData.map((data, index) => (
-                        <div key={index} className='border-2 p-10 flex flex-col justify-center items-center gap-10 w-fit rounded-md '>
-                            <h2 className='font-medium text-xl'>{data.category}</h2>
-                            <div className='flex flex-row gap-5'>
-                                <button 
-                                    className='p-2 bg-green-400 hover:bg-green-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
-                                    onClick={() => downloadFile(data.name)}
-                                >Descargar archivo</button>
-                                <button 
-                                    className='p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
-                                    onClick={() => handleFileUpload(data.category)}
-                                >Actualizar</button>
+        <div className='px-4 py-10 flex flex-col items-center gap-16'>
+            <section className='flex flex-row items-center justify-center gap-10'>
+                {fetchData.length > 0 ? (
+                    <>
+                        {fetchData.map((data, index) => (
+                            <div key={index} className='border-2 p-10 flex flex-col justify-center items-center gap-10 w-fit rounded-md '>
+                                <h2 className='font-medium text-xl'>{data.category}</h2>
+                                <div className='flex flex-row gap-5'>
+                                    <button 
+                                        className='p-2 bg-green-400 hover:bg-green-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
+                                        onClick={() => downloadFile(data.name)}
+                                    >Descargar archivo</button>
+                                    <button 
+                                        className='p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
+                                        onClick={() => handleFileUpload(data.category)}
+                                    >Actualizar</button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
 
-                    {/* Check for the number of files and display appropriate UI */}
-                    {fetchData.length === 1 && fetchData[0].category === 'Historial Medico' && (
+                        {/* Check for the number of files and display appropriate UI */}
+                        {fetchData.length === 1 && fetchData[0].category === 'Historial Medico' && (
+                            <div className='border-2 p-10 flex flex-col gap-10 justify-center items-center w-fit rounded-md'>
+                                <h2 className='font-medium text-xl'>Datos Personales</h2>
+                                <input
+                                    className='cursor-pointer p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
+                                    type='button'
+                                    value='Subir archivo'
+                                    onClick={() => handleFileUpload('Datos Personales')}
+                                />
+                            </div>
+                        )}
+
+                        {fetchData.length === 1 && fetchData[0].category === 'Datos Personales' && (
+                            <div className='border-2 p-10 flex flex-col gap-10 justify-center items-center w-fit rounded-md'>
+                                <h2 className='font-medium text-xl'>Historial Medico</h2>
+                                <input
+                                    className='cursor-pointer p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
+                                    type='button'
+                                    value='Subir archivo'
+                                    onClick={() => handleFileUpload('Historial Medico')}
+                                />
+                            </div>
+                        )}
+                    </>
+                ) : (
+                    <>
                         <div className='border-2 p-10 flex flex-col gap-10 justify-center items-center w-fit rounded-md'>
                             <h2 className='font-medium text-xl'>Datos Personales</h2>
                             <input
@@ -91,9 +118,6 @@ export default function HomeClient() {
                                 onClick={() => handleFileUpload('Datos Personales')}
                             />
                         </div>
-                    )}
-
-                    {fetchData.length === 1 && fetchData[0].category === 'Datos Personales' && (
                         <div className='border-2 p-10 flex flex-col gap-10 justify-center items-center w-fit rounded-md'>
                             <h2 className='font-medium text-xl'>Historial Medico</h2>
                             <input
@@ -103,30 +127,11 @@ export default function HomeClient() {
                                 onClick={() => handleFileUpload('Historial Medico')}
                             />
                         </div>
-                    )}
-                </>
-            ) : (
-                <>
-                    <div className='border-2 p-10 flex flex-col gap-10 justify-center items-center w-fit rounded-md'>
-                        <h2 className='font-medium text-xl'>Datos Personales</h2>
-                        <input
-                            className='cursor-pointer p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
-                            type='button'
-                            value='Subir archivo'
-                            onClick={() => handleFileUpload('Datos Personales')}
-                        />
-                    </div>
-                    <div className='border-2 p-10 flex flex-col gap-10 justify-center items-center w-fit rounded-md'>
-                        <h2 className='font-medium text-xl'>Historial Medico</h2>
-                        <input
-                            className='cursor-pointer p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
-                            type='button'
-                            value='Subir archivo'
-                            onClick={() => handleFileUpload('Historial Medico')}
-                        />
-                    </div>
-                </>
-            )}
+                    </>
+                )}
+            </section>
+            <TableAgenda />
         </div>
+
     );
 }
