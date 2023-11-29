@@ -11,7 +11,7 @@ import {
 } from './dataTablePersonal';
 
 import { ParamsTable, ParamsTableOptions } from '../TDsTables';
-import ButtonImprimir from '../ButtonImprimir';
+import ButtonImprimir from '../Buttons/ButtonImprimir';
 
 
 export default function TableDatosPersonales({data}) {

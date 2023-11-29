@@ -6,8 +6,8 @@ import { getHistorialMedicoUserByID, putHistorialMedicoUser } from '../../../../
 import PopupForms from './PopupForms';
 import Input from '../../../../common/inputs/Input';
 import { Inputs_DentistaHistorialMedico, Inputs_HistorialMedico } from '../../../../../data/inputsHistorialMedico';
-import ButtonDownloadFile from './ButtonDownloadFile';
-import ButtonCreate from './ButtonCreate';
+import ButtonCreate from './Buttons/ButtonCreate';
+import ButtonDownloadFile from './Buttons/ButtonDownloadFile';
 
 export default function HistorialMedico() {
 

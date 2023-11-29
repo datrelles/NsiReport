@@ -3,6 +3,7 @@ import UserTable from './UserTable';
 import { getUserAll } from '../../../../services/api';
 import { useEffect, useState } from 'react';
 import { useAuthContext } from '../../../../context/authContex';
+import { Link } from 'react-router-dom';
 
 function AdminDashBoard() {
     const [users, setUsers]=useState([]);
@@ -22,10 +23,10 @@ function AdminDashBoard() {
     return (
         <div>
             <button>
-                <a 
+                <Link
                     className='font-bold hover:text-cyan-600'
-                    href="user/agendar-cita"
-                >Gestionar Citas</a>
+                    to="agendar-cita"
+                >Gestionar Citas</Link>
             </button>
             <UserTable users={users} token={jwt} />
         </div>

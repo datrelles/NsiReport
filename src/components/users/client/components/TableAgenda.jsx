@@ -15,7 +15,7 @@ export default function TableAgenda() {
                 const responseAgenda = await getAgendaById(id);
                 
                 setDataAgenda(responseAgenda);
-                console.log(responseAgenda)
+                // console.log(responseAgenda)
             } catch (error) {
                 console.log(error)
                 const errorMessage = error.message;

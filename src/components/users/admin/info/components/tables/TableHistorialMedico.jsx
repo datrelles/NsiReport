@@ -5,7 +5,7 @@ import { useReactToPrint } from "react-to-print";
 
 import { ParamsTable, ParamsTableOptions, ParamsTableUniqueLine } from '../TDsTables';
 import { DATA_TABLE_DentistaRows, DATA_TABLE_HistorialMedicoRows } from './dataTableInformacionMedica';
-import ButtonImprimir from '../ButtonImprimir';
+import ButtonImprimir from '../Buttons/ButtonImprimir';
 
 
 export default function TableHistorialMedico({data}) {

@@ -28,6 +28,7 @@ import HistorialMedicoClient from '../components/users/client/views/HistorialMed
 import DatosPersonales from '../components/users/admin/info/components/DatosPersonales';
 import HistorialMedico from '../components/users/admin/info/components/HistorialMedico';
 import AppointmentManagement from '../components/users/admin/appointmentManagement';
+import Diagnostico from '../components/users/admin/info/components/Diagnostico';
 
 const router = createBrowserRouter([
     {
@@ -100,7 +101,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: 'diagnostico-dental',
-                        element: <HistorialMedico />
+                        element: <Diagnostico />
                     },
                     {
                         path: 'carta-consentimiento',

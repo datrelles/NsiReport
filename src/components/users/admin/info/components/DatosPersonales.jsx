@@ -13,8 +13,8 @@ import TableDatosPersonales from './tables/TableDatosPersonales';
 import { useParams } from 'react-router-dom';
 import { useAuthContext } from '../../../../../context/authContex';
 import { getUserInfoByID, putInfoPersonalUser } from '../../../../../services/api';
-import ButtonDownloadFile from './ButtonDownloadFile';
-import ButtonCreate from './ButtonCreate';
+import ButtonDownloadFile from './Buttons/ButtonDownloadFile';
+import ButtonCreate from './Buttons/ButtonCreate';
 
 export default function DatosPersonales() {
 

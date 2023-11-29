@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { getFileByCategory } from '../../../../../services/api';
-import { useAuthContext } from '../../../../../context/authContex';
+import { getFileByCategory } from '../../../../../../services/api';
+import { useAuthContext } from '../../../../../../context/authContex';
 import { useParams } from 'react-router-dom';
 
 export default function ButtonDownloadFile({category}) {

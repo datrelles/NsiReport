@@ -67,7 +67,6 @@ export const deleteUserById = async (token, id) => {
   }
 }
 
-
 // OBTENER INFORMACION PERSONAL DE UN USUARIO
 export const getUserInfoByID = async (token, id) => {
   try {
@@ -254,5 +253,36 @@ export const postAgenda = async (token, body) => {
     const errorMessage = error.message;
     throw new Error(errorMessage);
 
+  }
+}
+
+
+
+// Obtener todas el diagnostico dental
+export const getDiagnosticoDentalById = async (userId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/diagnostico-dental/byId/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+// Actualizar toda el diagnostico dental
+export const putDiagnosticoDentalById = async (token, body, userId) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await axios.put(`${API_BASE_URL}/diagnostico-dental/byId/${userId}`, body, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
   }
 }
