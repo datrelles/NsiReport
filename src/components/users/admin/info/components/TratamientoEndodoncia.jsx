@@ -9,8 +9,10 @@ import ButtonCreate from './Buttons/ButtonCreate';
 import ButtonDownloadFile from './Buttons/ButtonDownloadFile';
 import TableDiagnostico from './tables/TableDiagnostico';
 import { Inputs_DiagnosticoGeneral, Inputs_DiagnosticoTratamientoAdicional } from '../../../../../data/inputsDiagnosticoDental';
+import TableCartaConsentimiento from './tables/TableCartaConsentimiento';
+import TableTratamientoEndodoncia from './tables/TableTratamientoEndodoncia';
 
-export default function Diagnostico() {
+export default function TratamientoEndodoncia() {
 
   const [fetchData, setFetchData] = useState(null);
   const [activePopupCreate, setActivePopupCreate] = useState(false);
@@ -146,7 +148,7 @@ export default function Diagnostico() {
         <ButtonDownloadFile category={'Historial Medico'} />
       </section>
 
-      {fetchData && <TableDiagnostico data={fetchData} />}
+      {fetchData && <TableTratamientoEndodoncia data={fetchData} />}
 
       <PopupForms
         active={activePopupCreate}

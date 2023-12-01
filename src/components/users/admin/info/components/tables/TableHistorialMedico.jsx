@@ -48,22 +48,20 @@ export default function TableHistorialMedico({data}) {
                         {DATA_TABLE_HistorialMedicoRows.map((row, rowIndex) => (
                             <tr key={rowIndex}>
                                 {row.map((field, colIndex) => (
-                                    <>
+                                    <React.Fragment key={colIndex} >
                                         {field.typeComponent == 'Option' ? 
                                             <ParamsTableOptions
-                                                key={colIndex}
                                                 label={`${field.label} `}
                                                 selectedOption={historialMedico.historial_medico[field.field]}
                                             />
                                             :
                                             <ParamsTable
-                                                key={colIndex}
                                                 colSpan={field.colSpan}
                                                 label={`${field.label} `}
                                                 text={historialMedico.historial_medico[field.field] || 'NULL'}
                                             />
                                         }
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </tr>
                         ))}
@@ -88,12 +86,12 @@ export default function TableHistorialMedico({data}) {
                         {DATA_TABLE_DentistaRows.map((row, rowIndex) => (
                         <tr key={rowIndex}>
                             {row.map((field, colIndex) => (
-                            <ParamsTableUniqueLine
-                                key={colIndex}
-                                colSpan={field.colSpan}
-                                label={`${field.label}`}
-                                text={historialMedico.dentistahistorialmedico[field.field] || ''}
-                            />
+                                <ParamsTableUniqueLine
+                                    key={colIndex}
+                                    colSpan={field.colSpan}
+                                    label={`${field.label}`}
+                                    text={historialMedico.dentistahistorialmedico[field.field] || ''}
+                                />
                             ))}
                         </tr>
                         ))}

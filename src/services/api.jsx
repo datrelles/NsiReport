@@ -182,13 +182,7 @@ export const getFileByCategory = async (token, user_id, category) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log({
-      url: `${API_BASE_URL}/file/by-category/${user_id}/${category}`,
-      category,
-      user_id,
-    })
     const response = await axios.get(`${API_BASE_URL}/file/by-category/${user_id}/${category}`);
-    console.log(response.data)
     return response.data;
   } catch (error) {
     console.log(error);
@@ -257,7 +251,6 @@ export const postAgenda = async (token, body) => {
 }
 
 
-
 // Obtener todas el diagnostico dental
 export const getDiagnosticoDentalById = async (userId) => {
   try {
@@ -279,6 +272,37 @@ export const putDiagnosticoDentalById = async (token, body, userId) => {
     };
 
     const response = await axios.put(`${API_BASE_URL}/diagnostico-dental/byId/${userId}`, body, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+
+
+// Obtener todas la carta de consentimiento
+export const getCartaConsentimentoById = async (userId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/consentimiento/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+
+// Actualizar toda el diagnostico dental
+export const putCartaConsentimentoById = async (token, body, userId) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await axios.put(`${API_BASE_URL}/consentimiento/${userId}`, body, config);
     return response.data;
   } catch (error) {
     console.log(error)

@@ -46,7 +46,7 @@ export default function TableDatosPersonales({data}) {
                                 text={<img className='w-32 mx-20' src={Logo} alt='' />}
                             />
                             {DATA_TABLE_PersonalRows.map((row, rowIndex) => (
-                                <>
+                                <React.Fragment key={rowIndex}>
                                     {row.map((field, colIndex) => (
                                         <ParamsTable
                                             key={colIndex}
@@ -55,7 +55,7 @@ export default function TableDatosPersonales({data}) {
                                             text={personalInfoUser.personaldatatable[field.field] || 'NULL'}
                                         />
                                     ))}
-                                </>
+                                </React.Fragment>
                             ))}
                         </tr>
                     </tbody>
@@ -86,9 +86,9 @@ export default function TableDatosPersonales({data}) {
                 <table className='w-full my-4'>
                     <thead className='!border-none'>
                         <tr className='!border-none'>
-                        <th colSpan="5" className="!border-none bg-cyan-700 text-white">
-                            PADRE O TUTOR DEL PACIENTE (SI EL PACIENTE ES MENOR DE 18 AÑOS DE EDAD)
-                        </th>
+                            <th colSpan="5" className="!border-none bg-cyan-700 text-white">
+                                PADRE O TUTOR DEL PACIENTE (SI EL PACIENTE ES MENOR DE 18 AÑOS DE EDAD)
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,22 +117,22 @@ export default function TableDatosPersonales({data}) {
                         {DATA_TABLE_PentalHealthAnswersRows.map((row, rowIndex) => (
                             <tr key={rowIndex}>
                                 {row.map((field, colIndex) => (
-                                    <>
+                                    <React.Fragment key={colIndex}>
                                         {field.typeComponent == 'Option' ? 
                                             <ParamsTableOptions
-                                                key={colIndex}
+                                                // key={colIndex}
                                                 label={`${field.label} `}
                                                 selectedOption={personalInfoUser.dentalhealthanswers[field.field]}
                                             />
                                             :
                                             <ParamsTable
-                                                key={colIndex}
+                                                // key={colIndex}
                                                 colSpan={field.colSpan}
                                                 label={`${field.label} `}
                                                 text={personalInfoUser.dentalhealthanswers[field.field] || 'NULL'}
                                             />
                                         }
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </tr>
                         ))}
@@ -152,10 +152,10 @@ export default function TableDatosPersonales({data}) {
                         {DATA_TABLE_MedicalInformationRows.map((row, rowIndex) => (
                             <tr key={rowIndex}>
                                 {row.map((field, colIndex) => (
-                                    <>
+                                    <React.Fragment key={colIndex}>
                                         {field.typeComponent == 'Option' ?
                                             <ParamsTableOptions
-                                                key={colIndex}
+                                                // key={colIndex}
                                                 label={`${field.label} `}
                                                 selectedOption={personalInfoUser.medicalinformation[field.field]}
                                             />
@@ -163,13 +163,13 @@ export default function TableDatosPersonales({data}) {
                                             <td colSpan={'2'} className='bg-red-400 text-white text-center font-medium'>{field.label}</td>
                                         :
                                             <ParamsTable
-                                                key={colIndex}
+                                                // key={colIndex}
                                                 colSpan={field.colSpan}
                                                 label={`${field.label} `}
                                                 text={personalInfoUser.medicalinformation[field.field] || 'NULL'}
                                             />
                                         }
-                                    </>
+                                    </React.Fragment>
                                 ))}
                             </tr>
                         ))}

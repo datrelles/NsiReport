@@ -26,7 +26,7 @@ export default function TableDiagnostico({data = null}) {
         return dateFormated !== 'Invalid date' ? dateFormated : "";
     }
 
-    console.log(data.dental_tratamientoadicional)
+    // console.log(data.dental_tratamientoadicional)
     
   return (
     <section className='w-full'>
@@ -59,10 +59,9 @@ export default function TableDiagnostico({data = null}) {
                     </thead>
                     <tbody>
                         {data.dental_dientes.map((data, index)=>(
-                            <>
+                            <React.Fragment key={index} >
                                 {data.posicion === "arriba-izq" || data.posicion === "arriba-der" ?
                                     <BodyTRTableDientes
-                                        key={index}
                                         nDiente={data.numero}
                                         diagnostico={data.diagnostico}
                                         presupuesto={data.presupuesto}
@@ -71,14 +70,13 @@ export default function TableDiagnostico({data = null}) {
                                         abono={data.abono}
                                     />
                                 : ""}
-                            </>
+                            </React.Fragment>
                         ))}
                         <HeaderTableDientes />
                         {data.dental_dientes.map((data, index)=>(
-                            <>
+                            <React.Fragment key={index} >
                                 {data.posicion === "abajo-izqu" || data.posicion === "abajo-dere" ?
                                     <BodyTRTableDientes
-                                        key={index}
                                         nDiente={data.numero}
                                         diagnostico={data.diagnostico}
                                         presupuesto={data.presupuesto}
@@ -87,7 +85,7 @@ export default function TableDiagnostico({data = null}) {
                                         abono={data.abono}
                                     />
                                 : ""}
-                            </>
+                            </React.Fragment>
                         ))}
                         <tr>
                             <th colSpan={6} className='p-2 bg-cyan-700 text-white'>PLAN DE TRATAMIENTO ADICIONAL</th>

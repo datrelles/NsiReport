@@ -29,6 +29,8 @@ import DatosPersonales from '../components/users/admin/info/components/DatosPers
 import HistorialMedico from '../components/users/admin/info/components/HistorialMedico';
 import AppointmentManagement from '../components/users/admin/appointmentManagement';
 import Diagnostico from '../components/users/admin/info/components/Diagnostico';
+import CartaConsentimiento from '../components/users/admin/info/components/CartaConsentimiento';
+import TratamientoEndodoncia from '../components/users/admin/info/components/TratamientoEndodoncia';
 
 const router = createBrowserRouter([
     {
@@ -105,11 +107,11 @@ const router = createBrowserRouter([
                     },
                     {
                         path: 'carta-consentimiento',
-                        element: <HistorialMedico />
+                        element: <CartaConsentimiento />
                     },
                     {
                         path: 'tratamiento',
-                        element: <HistorialMedico />
+                        element: <TratamientoEndodoncia />
                     },
                 ]
             },
