@@ -61,6 +61,7 @@ export default function HistorialMedico() {
     try {
       const response = await putHistorialMedicoUser(jwt, fetchData, id);
       handleDesactivePopupCreate();
+      window.location.reload();
     } catch (error) {
       console.error(error)
     }

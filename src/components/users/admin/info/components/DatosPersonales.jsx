@@ -89,6 +89,7 @@ export default function DatosPersonales() {
     try {
       const response = await putInfoPersonalUser(jwt, fetchData, id);
       handleDesactivePopupCreate();
+      window.location.reload();
     } catch (error) {
       console.error(error)
     }

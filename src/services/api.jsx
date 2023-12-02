@@ -293,7 +293,7 @@ export const getCartaConsentimentoById = async (userId) => {
   }
 }
 
-// Actualizar toda el diagnostico dental
+// Actualizar la carta de consentimiento
 export const putCartaConsentimentoById = async (token, body, userId) => {
   try {
     const config = {
@@ -310,3 +310,64 @@ export const putCartaConsentimentoById = async (token, body, userId) => {
     throw new Error(errorMessage);
   }
 }
+
+
+// Obtener el tratamiento de endodoncia
+export const getTratamientoEndodonciaById = async (userId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/tratamiento/endodoncia/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+export const putTratamientoEndodonciaById = async (token, body, userId) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.put(`${API_BASE_URL}/tratamiento/endodoncia/${userId}`, body, config);
+    return response.data;
+
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+export const postElementTratamientoEndodoncia = async (token, body, userId, tratamientoId) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.post(`${API_BASE_URL}/tratamiento/endodoncia/element/${userId}/${tratamientoId}`, body, config);
+    return response.data;
+
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+export const deleteElementTratamientoEndodoncia = async (token, userId, element_id) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.delete(`${API_BASE_URL}/tratamiento/endodoncia/element/${userId}/${element_id}`, config);
+    return response.data;
+  } catch (error) {
+    console.log(error)
+    const errorMessage = error.message;
+    throw new Error(errorMessage);
+  }
+}
+

@@ -2,25 +2,27 @@ import React, { useEffect, useState } from 'react'
 import TableHistorialMedico from './tables/TableHistorialMedico'
 import { useParams } from 'react-router-dom';
 import { useAuthContext } from '../../../../../context/authContex';
-import { getDiagnosticoDentalById, putDiagnosticoDentalById, putHistorialMedicoUser } from '../../../../../services/api';
+import { getDiagnosticoDentalById, getTratamientoEndodonciaById, putDiagnosticoDentalById, putHistorialMedicoUser, putTratamientoEndodonciaById } from '../../../../../services/api';
 import PopupForms from './PopupForms';
 import Input from '../../../../common/inputs/Input';
 import ButtonCreate from './Buttons/ButtonCreate';
 import ButtonDownloadFile from './Buttons/ButtonDownloadFile';
-import TableDiagnostico from './tables/TableDiagnostico';
-import { Inputs_DiagnosticoGeneral, Inputs_DiagnosticoTratamientoAdicional } from '../../../../../data/inputsDiagnosticoDental';
-import TableCartaConsentimiento from './tables/TableCartaConsentimiento';
 import TableTratamientoEndodoncia from './tables/TableTratamientoEndodoncia';
+import { Inputs_EndodonciaDiagnostico, Inputs_EndodonciaGeneral, Inputs_TratamientoEndodoncia_Padre } from '../../../../../data/inputsTratamientoEndodoncia';
 
 export default function TratamientoEndodoncia() {
 
   const [fetchData, setFetchData] = useState(null);
   const [activePopupCreate, setActivePopupCreate] = useState(false);
   
-  const [diagnosticoGeneral, setDiagnosticoGeneral] = useState(true);
-  const [diagnosticoDientes, setDiagnosticoDientes] = useState(false);
-  const [diagnosticoTratamientoAdicional, setDiagnosticoTratamientoAdicional] = useState(false);
+  const [endodonciaGeneral, setEndodonciaGeneral] = useState(true);
+  const [endodonciaDatosExamen, setEndodonciaDatosExamen] = useState(false);
+  const [endodonciaDiagnostico, setEndodonciaDiagnostico] = useState(false);
+  const [endodonciaTratamiento, setEndodonciaTratamiento] = useState(false);
+
+  const [dataEndodonciaDatosExamen, setDataEndodonciaDatosExamen] = useState(false);
   
+
   const [buttonSend, setButtonSend] = useState(false);
   
   const { id } = useParams();
@@ -37,7 +39,18 @@ export default function TratamientoEndodoncia() {
       },
     });
   };
-  
+  const handleInputChangeArray = (index, fieldName, value) => {
+    // Clonar el array para no modificar el estado directamente
+    const newData = [...fetchData.tratamiento_endodoncia_datos_del_examen];
+
+    // Actualizar el campo específico
+    newData[index][fieldName] = value;
+
+    // Actualizar el estado
+    setDataEndodonciaDatosExamen(newData);
+  };
+
+
   const handleActivePopupCreate = () => {
     setActivePopupCreate(true);
   }
@@ -45,20 +58,26 @@ export default function TratamientoEndodoncia() {
     setActivePopupCreate(false);
 
     // Reinicar el el formulario
-    setDiagnosticoGeneral(true);
-    setDiagnosticoDientes(false);
-    setDiagnosticoTratamientoAdicional(false);
+    setEndodonciaGeneral(true);
+    setEndodonciaDatosExamen(false);
+    setEndodonciaDiagnostico(false);
+    setEndodonciaTratamiento(false);
+    
     setButtonSend(false);
   }
   const handleNextPopupCreate = () => {
     switch (true) {
-      case diagnosticoGeneral:
-        setDiagnosticoGeneral(false);
-        setDiagnosticoDientes(true);
+      case endodonciaGeneral:
+        setEndodonciaGeneral(false);
+        setEndodonciaDatosExamen(true);
         break;
-      case diagnosticoDientes:
-        setDiagnosticoDientes(false);
-        setDiagnosticoTratamientoAdicional(true);
+      case endodonciaDatosExamen:
+        setEndodonciaDatosExamen(false);
+        setEndodonciaDiagnostico(true);
+        break;
+      case endodonciaDiagnostico:
+        setEndodonciaDiagnostico(false);
+        setEndodonciaTratamiento(true);
         setButtonSend(true);
         break;
       default:
@@ -68,56 +87,12 @@ export default function TratamientoEndodoncia() {
   }
 
 
-  const reorganizeData = (data) => {
-    const reorganizedData = { diagnosticoGeneral:{}, dientes: {}, tratamientoAdicional: {} };
-  
-    for (const key in data) {
-      if (data.hasOwnProperty(key) && key !== "") {
-        const match = key.match(/(\d+)$/);
-  
-        if (match) {
-          const number = match[1];
-          const prefix = key.replace(`_${number}`, "");
-  
-          if (!reorganizedData.dientes[number]) {
-            reorganizedData.dientes[number] = {};
-          }
-  
-          reorganizedData.dientes[number][prefix] = data[key];
-        } else {
-          // Si no hay un número al final, almacenar en otro objeto
-          if (key === 'fecha') {
-            reorganizedData.diagnosticoGeneral[key] = data[key];
-          }else {
-            reorganizedData.tratamientoAdicional[key] = data[key];
-          }
-          
-        }
-      }
-    }
-  
-    return reorganizedData;
-  };
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const formData = {};
-      const elements = e.target.elements;
-  
-      for (let i = 0; i < elements.length; i++) {
-        const element = elements[i];
-  
-        if (element.type !== 'submit') {
-          // Omitir el botón de envío u otros elementos que no son inputs
-          formData[element.name] = element.value;
-        }
-      }
-      const reorganizedData = reorganizeData(formData);
-      console.log({jwt, id})
-      console.log(reorganizedData);
 
-      const response = await putDiagnosticoDentalById(jwt, reorganizedData, id);
+      const response = await putTratamientoEndodonciaById(jwt, fetchData, id);
       console.log(response)
       handleDesactivePopupCreate();
       window.location.reload();
@@ -129,7 +104,7 @@ export default function TratamientoEndodoncia() {
   useEffect(() => {
     const getDataTable = async () => {
         try {
-          const response = await getDiagnosticoDentalById(id)
+          const response = await getTratamientoEndodonciaById(id)
           setFetchData(response);
         } catch (error) {
           console.error(error)
@@ -140,6 +115,7 @@ export default function TratamientoEndodoncia() {
 
 
 
+  
 
   return (
     <div className='pt-6 relative'>
@@ -156,16 +132,53 @@ export default function TratamientoEndodoncia() {
       >
           <form className="flex flex-col" onSubmit={handleSubmit}>
               <h1 className='text-lg font-bold mb-5'>{`
-                Diagnostico Dental
-                ${diagnosticoDientes ? '(Dientes)' : ''}
-                ${diagnosticoTratamientoAdicional ? '(Tratamiento adicional)' : ''}
+                Endodoncia
+                ${endodonciaDatosExamen ? '(DATOS DEL EXAMEN)' : ''}
+                ${endodonciaDiagnostico ? '(DIAGNOSTICO)' : ''}
+                ${endodonciaTratamiento ? '(DATOS GENERALES DEL TRATAMIENTO)' : ''}
               `}</h1>
               
-
               {fetchData ?
                 <React.Fragment>
-                    <div className={`${!diagnosticoGeneral ? 'hidden': ''}`}>
-                      {Inputs_DiagnosticoGeneral.map((data, index)=>(
+                    <div className={`${!endodonciaGeneral ? 'hidden': ''}`}>
+                      {Inputs_EndodonciaGeneral.map((data, index)=>(
+                        <Input
+                          key={index}
+                          label={data.label}
+                          type={data.type}
+                          id={data.id}
+                          name={data.name}
+                          placeholder={data.placeholder}
+                          value={fetchData.tratamiento_endodoncia_general[data.name]}
+                          onChange={(e) => handleInputChange("tratamiento_endodoncia_general", e)}
+                        />
+                      ))}
+                    </div>
+                    <div className={`${!endodonciaDatosExamen ? 'hidden': ''}`}>
+                      {fetchData.tratamiento_endodoncia_datos_del_examen.map((data, index)=>(
+                        <div className='flex flex-col gap-2 mt-5' key={index}>
+                          <label htmlFor="" className='font-semibold'>{data.label}</label>
+                          <input
+                            className='border-b'
+                            type="text"
+                            name={`option_${data.name}`}
+                            placeholder='si/no'
+                            value={data.column_option}
+                            onChange={(e) => handleInputChangeArray(index, 'column_option', e.target.value)}
+                          />
+                          <input
+                            className='border-b'
+                            type="text"
+                            name={`detalle_${data.name}`}
+                            placeholder='¿Hace cuánto tiempo? / Tipo / Grado / Detalle'
+                            value={data.column_last}
+                            onChange={(e) => handleInputChangeArray(index, 'column_last', e.target.value)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className={`${!endodonciaDiagnostico ? 'hidden': ''}`}>
+                      {Inputs_EndodonciaDiagnostico.map((data, index)=>(
                           <Input
                             key={index}
                             label={data.label}
@@ -173,73 +186,23 @@ export default function TratamientoEndodoncia() {
                             id={data.id}
                             name={data.name}
                             placeholder={data.placeholder}
-                            value={fetchData.dental_diagnosticogeneral[data.name]}
-                            onChange={(e) => handleInputChange("dental_diagnosticogeneral", e)}
+                            value={fetchData.tratamiento_endodoncia_diagnostico[data.name]}
+                            onChange={(e) => handleInputChange("tratamiento_endodoncia_diagnostico", e)}
                           />
                       ))}
                     </div>
-                    <div className={`${!diagnosticoDientes ? 'hidden': ''}`}>
-                      {fetchData.dental_dientes.map((data, index)=>(
-                          <div key={`dientes_${index}`} className='mb-16'>
-                            <h1 className='font-semibold text-lg italic'>{`Diente numero ${data.numero} (${data.posicion})`}</h1>
-                            <article>
-                              <Input
-                                key={index}
-                                label={'Diagnostico'}
-                                type={'text'}
-                                id={`diagnostico_${data.numero}`}
-                                name={`diagnostico_${data.numero}`}
-                                placeholder={'Escriba el diagnostico'}
-                                // value={fetchData.dentistahistorialmedico[data.name]}
-                                // onChange={(e) => handleInputChange("dentistahistorialmedico", e)}
-                              />
-                              <Input
-                                key={index}
-                                label={'Presupuesto'}
-                                type={'number'}
-                                id={`presupuesto_${data.numero}`}
-                                name={`presupuesto_${data.numero}`}
-                                placeholder={'00.00'}
-                              />
-                              <Input
-                                key={index}
-                                label={'Fecha'}
-                                type={'date'}
-                                id={`fecha_${data.numero}`}
-                                name={`fecha_${data.numero}`}
-                              />
-                              <Input
-                                key={index}
-                                label={'Tratamiento'}
-                                type={'text'}
-                                id={`tratamiento_${data.numero}`}
-                                name={`tratamiento_${data.numero}`}
-                                placeholder={'Escriba el tratamiento'}
-                              />
-                              <Input
-                                key={index}
-                                label={'Abono'}
-                                type={'number'}
-                                id={`abono_${data.numero}`}
-                                name={`abono_${data.numero}`}
-                                placeholder={'00.00'}
-                              />
-                            </article>
-                          </div>
-                      ))}
-                    </div>
-                    <div className={`${!diagnosticoTratamientoAdicional ? 'hidden': ''}`}>
-                      {Inputs_DiagnosticoTratamientoAdicional.map((data, index)=>(
-                          <Input
-                            key={index}
-                            label={data.label}
-                            type={data.type}
-                            id={data.id}
-                            name={data.name}
-                            placeholder={data.placeholder}
-                            // value={fetchData.dental_tratamientoadicional[0][data.name]}
-                            // onChange={(e) => handleInputChange("dental_tratamientoadicional", e)}
-                          />
+                    <div className={`${!endodonciaTratamiento? 'hidden': ''}`}>
+                      {Inputs_TratamientoEndodoncia_Padre.map((data, index)=>(
+                        <Input
+                          key={index}
+                          label={data.label}
+                          type={data.type}
+                          id={data.id}
+                          name={data.name}
+                          placeholder={data.placeholder}
+                          value={fetchData.tratamiento_endodoncia_tabla_unida[data.name]}
+                          onChange={(e) => handleInputChange("tratamiento_endodoncia_tabla_unida", e)}
+                        />
                       ))}
                     </div>
                 </React.Fragment>
@@ -250,7 +213,6 @@ export default function TratamientoEndodoncia() {
                 <button
                   className='border rounded-md w-full py-2 px-4 text-white font-semibold bg-green-500 hover:bg-green-600'
                   type="submit"
-                  // onClick={handleDesactivePopupCreate}
                 >Guardar</button>
                 {!buttonSend &&
                   <button
