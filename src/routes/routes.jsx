@@ -31,6 +31,11 @@ import AppointmentManagement from '../components/users/admin/appointmentManageme
 import Diagnostico from '../components/users/admin/info/components/Diagnostico';
 import CartaConsentimiento from '../components/users/admin/info/components/CartaConsentimiento';
 import TratamientoEndodoncia from '../components/users/admin/info/components/TratamientoEndodoncia';
+import ArchivosClient from '../components/users/client/views/ArchivosClient';
+import CartaConsentimientoClient from '../components/users/client/views/CartaConsentimientoClient';
+import DiagnosticoClient from '../components/users/client/views/DiagnosticoClient';
+import TratamientoEndodonciaClient from '../components/users/client/views/TratamientoEndodonciaClient';
+import Archivos from '../components/users/admin/info/components/Archivos';
 
 const router = createBrowserRouter([
     {
@@ -94,6 +99,10 @@ const router = createBrowserRouter([
                 element: <Info/>,
                 children: [
                     {
+                        path: 'archivos',
+                        element: <Archivos/>
+                    },
+                    {
                         path: 'datos-personales',
                         element: <DatosPersonales />
                     },
@@ -125,16 +134,34 @@ const router = createBrowserRouter([
         element: <ClientRoute />,
         children: [
             {
-                index: true,
-                element: <HomeClient />
-            },
-            {
-                path: 'datos-personales',
-                element: <DatosPersonalesClient/>
-            },
-            {
-                path: 'historial-medico',
-                element: <HistorialMedicoClient/>
+                index: '/',
+                element: <HomeClient />,
+                children: [
+                    {
+                        path: 'archivos',
+                        element: <ArchivosClient/>
+                    },
+                    {
+                        path: 'datos-personales',
+                        element: <DatosPersonalesClient/>
+                    },
+                    {
+                        path: 'historial-medico',
+                        element: <HistorialMedicoClient/>
+                    },
+                    {
+                        path: 'diagnostico-dental',
+                        element: <DiagnosticoClient />
+                    },
+                    {
+                        path: 'carta-consentimiento',
+                        element: <CartaConsentimientoClient />
+                    },
+                    {
+                        path: 'tratamiento',
+                        element: <TratamientoEndodonciaClient />
+                    },
+                ]
             },
         ]
     },

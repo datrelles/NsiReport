@@ -287,14 +287,16 @@ export default function TableTratamientoEndodoncia({
                             .
                             </th>
                             <th className="border-none">
-                            <button
-                                className="bg-cyan-500 text-white drop-shadow-2xl px-8 py-1 rounded-full shadow-sm"
-                                onClick={
-                                handleActivePopupCreateElementTratamientoOndodoncia
-                                }
-                            >
-                                Crear
-                            </button>
+                            {admin &&
+                              <button
+                                  className="bg-cyan-500 text-white drop-shadow-2xl px-8 py-1 rounded-full shadow-sm"
+                                  onClick={
+                                  handleActivePopupCreateElementTratamientoOndodoncia
+                                  }
+                              >
+                                  Crear
+                              </button>
+                            }
                             </th>
                         </tr>
                         <tr>

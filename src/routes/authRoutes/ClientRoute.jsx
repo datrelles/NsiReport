@@ -26,7 +26,7 @@ export default function Client(){
             <Nav />
             <div className='relative min-h-[500px]'>
                 <div className='[absolute] w-full h-full'>
-                    <article className="flex flex-row gap-5">
+                    {/* <article className="flex flex-row gap-5">
                       <div
                           className="p-2 shadow-md w-fit rounded-lg cursor-pointer"
                           onClick={handleViewDatosPersonales}    
@@ -39,7 +39,7 @@ export default function Client(){
                       >
                           Historial Medico
                       </div>
-                    </article>
+                    </article> */}
                     < Outlet />
                 </div>
             </div>

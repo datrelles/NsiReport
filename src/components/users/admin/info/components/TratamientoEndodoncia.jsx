@@ -121,7 +121,6 @@ export default function TratamientoEndodoncia() {
     <div className='pt-6 relative'>
       <section className='flex flex-row gap-10 px-10'>
         <ButtonCreate onClick={handleActivePopupCreate} />
-        <ButtonDownloadFile category={'Historial Medico'} />
       </section>
 
       {fetchData && <TableTratamientoEndodoncia data={fetchData} />}
