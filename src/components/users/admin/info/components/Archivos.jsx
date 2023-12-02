@@ -73,10 +73,10 @@ const ButtonFileUploaded = ({name, category}) => {
                     className='p-2 bg-green-400 hover:bg-green-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
                     onClick={() => downloadFile(name)}
                 >Descargar archivo</button>
-                <button 
+                {/* <button 
                     className='p-2 bg-cyan-400 hover:bg-cyan-600 rounded-md shadow-sm hover:text-white font-medium drop-shadow-lg'
                     onClick={() => handleFileUpload(jwt, id, category)}
-                >Actualizar</button>
+                >Actualizar</button> */}
             </div>
         </div>
     )

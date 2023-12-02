@@ -12,8 +12,6 @@ import moment from "moment";
 
 export default function TableDiagnostico({data = null}) {
 
-    
-
     const tablesRef = useRef(null);
 
     const exportToPDF = useReactToPrint({
@@ -26,7 +24,7 @@ export default function TableDiagnostico({data = null}) {
         return dateFormated !== 'Invalid date' ? dateFormated : "";
     }
 
-    // console.log(data.dental_tratamientoadicional)
+    // console.log(data)
     
   return (
     <section className='w-full'>
@@ -60,7 +58,7 @@ export default function TableDiagnostico({data = null}) {
                     <tbody>
                         {data.dental_dientes.map((data, index)=>(
                             <React.Fragment key={index} >
-                                {data.posicion === "arriba-izq" || data.posicion === "arriba-der" ?
+                                {data.posicion === "arriba-izquierda" || data.posicion === "arriba-derecha" ?
                                     <BodyTRTableDientes
                                         nDiente={data.numero}
                                         diagnostico={data.diagnostico}
@@ -75,7 +73,7 @@ export default function TableDiagnostico({data = null}) {
                         <HeaderTableDientes />
                         {data.dental_dientes.map((data, index)=>(
                             <React.Fragment key={index} >
-                                {data.posicion === "abajo-izqu" || data.posicion === "abajo-dere" ?
+                                {data.posicion === "abajo-izquierda" || data.posicion === "abajo-derecha" ?
                                     <BodyTRTableDientes
                                         nDiente={data.numero}
                                         diagnostico={data.diagnostico}

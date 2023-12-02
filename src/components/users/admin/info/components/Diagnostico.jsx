@@ -112,7 +112,6 @@ export default function Diagnostico() {
         }
       }
       const reorganizedData = reorganizeData(formData);
-      console.log({jwt, id})
       console.log(reorganizedData);
 
       const response = await putDiagnosticoDentalById(jwt, reorganizedData, id);
