@@ -8,26 +8,26 @@ export const DATA_TABLE_Personal = {
 };
 export const DATA_TABLE_PersonalRows = [
     [
-        { label: 'Alerta médica', field: 'alerta_medica'},
-        { label: 'Condición', field: 'condicion'},
-        { label: 'Premedicación', field: 'premedicacion'},
-        { label: 'Alergias', field: 'alergias'},
-        { label: 'Anestesia', field: 'anestesia'},
-        { label: 'Fecha', field: 'fecha'},
+        { label: 'Informe No. ', field: 'alerta_medica' },
+        /* { label: 'Condición', field: 'condicion' },
+        { label: 'Premedicación', field: 'premedicacion' },
+        { label: 'Alergias', field: 'alergias' },
+        { label: 'Anestesia', field: 'anestesia' }, */
+        { label: 'Fecha', field: 'fecha' },
     ]
 ];
 export const DATA_TABLE_PersonalInformationRows = [
     [
-        { label: 'Nombre', field: 'name', colSpan: 2 },
-        { label: 'Apellido paterno', field: 'paternal_last_name' },
-        { label: 'Apellido materno', field: 'maternal_last_name' },
-        { label: 'Tel. de trabajo', field: 'work_phone' },
+        { label: 'Cliente', field: 'name', colSpan: 2 },
+        { label: 'RUC', field: 'paternal_last_name' },
+        { label: 'Direccion', field: 'maternal_last_name' },
+        { label: 'Telefono', field: 'work_phone' },
     ],
     [
-        { label: 'Celular', field: 'cell_phone', colSpan: 2 },
+        { label: 'Atencion', field: 'cell_phone', colSpan: 2 },
         { label: 'Correo electrónico', field: 'email', colSpan: 3 },
     ],
-    [
+   /*  [
         { label: 'Edad', field: 'age' },
         { label: 'Fecha de nacimiento', field: 'date_of_birth' },
         { label: 'Estatura', field: 'height_cm' },
@@ -53,24 +53,24 @@ export const DATA_TABLE_PersonalInformationRows = [
     ],
     [
         { label: 'Aseguranza', field: 'insurance', colSpan: 5 },
-    ]
+    ] */
 ];
 export const DATA_TABLE_ParentGuardianRows = [
     [
-      { label: 'Nombre', field: 'name' },
-      { label: 'Apellido paterno', field: 'paternal_last_name' },
-      { label: 'Apellido materno', field: 'maternal_last_name' },
-      { label: 'Edad', field: 'age' },
-      { label: 'Parentesco', field: 'relationship' },
+        { label: 'Marca', field: 'name' },
+        { label: 'Modelo', field: 'paternal_last_name' },
+        { label: 'Serie', field: 'maternal_last_name' },
+        { label: 'Procedencia', field: 'age' },
+        { label: 'Codigo Interno', field: 'relationship' },
     ],
     [
-      { label: 'Celular', field: 'cell_phone', colSpan: 2 },
-      { label: 'Correo electrónico', field: 'email', colSpan: 3 },
+        { label: 'Celular', field: 'cell_phone', colSpan: 2 },
+        { label: 'Correo electrónico', field: 'email', colSpan: 3 },
     ],
     [
-      { label: 'Dirección', field: 'address', colSpan: 3 },
-      { label: 'Ciudad', field: 'city' },
-      { label: 'Código postal', field: 'postal_code' },
+        { label: 'Dirección', field: 'address', colSpan: 3 },
+        { label: 'Ciudad', field: 'city' },
+        { label: 'Código postal', field: 'postal_code' },
     ],
 ];
 export const DATA_TABLE_PentalHealthAnswersRows = [
@@ -140,14 +140,14 @@ export const DATA_TABLE_MedicalInformationRows = [
     ],
     [
         { label: '¿Ha cambiado su salud durante los dos años pasados?', field: 'cambio_salud_ultimos_dos_anios', typeComponent: 'Option' },
-        { label: 'PARA MUJERES ÚNICAMENTE', typeComponent: 'Subtitle'},
+        { label: 'PARA MUJERES ÚNICAMENTE', typeComponent: 'Subtitle' },
     ],
     [
         { label: '¿Actualmente se encuentra bajo tratamiento médico?', field: 'bajo_tratamiento_medico', typeComponent: 'Option' },
         { label: '¿Está o pudiera estar embarazada?', field: 'embarazo', typeComponent: 'Option' },
     ],
     [
-        { label: '¿De qué enfermedad está siendo tratado?', field: 'enfermedad_en_tratamiento', colSpan: 2},
+        { label: '¿De qué enfermedad está siendo tratado?', field: 'enfermedad_en_tratamiento', colSpan: 2 },
         { label: '¿Está amamantando?', field: 'amamantando', typeComponent: 'Option' },
     ],
     [
@@ -155,7 +155,7 @@ export const DATA_TABLE_MedicalInformationRows = [
         { label: '¿Está tomando anticonceptivos u hormonas?', field: 'anticonceptivos_hormonas', typeComponent: 'Option' },
     ],
     [
-        { label: '¿Especifique a cuál y el tipo de reacción?', field: 'alergias_descripcion', colSpan: 2},
-        { label: '¿Cuál?', field: 'cual_anticonceptivos_hormonas', colSpan: 2},
+        { label: '¿Especifique a cuál y el tipo de reacción?', field: 'alergias_descripcion', colSpan: 2 },
+        { label: '¿Cuál?', field: 'cual_anticonceptivos_hormonas', colSpan: 2 },
     ],
 ];

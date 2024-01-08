@@ -79,9 +79,6 @@ function Formulario() {
     <div className="mx-auto p-4">
       {Loading && <Loader />}
       <div className="flex justify-center space-x-4 mb-6">
-        <FaGooglePlusG size={38} className="text-black rounded-full border-2 border-black  p-1" />
-        <FaFacebookF size={38} className="text-black rounded-full border-2 border-black  p-2" />
-        {/* <FaLinkedinIn size={38} className="text-black rounded-full border-2 border-black p-2" /> */}
       </div>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

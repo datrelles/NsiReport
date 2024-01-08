@@ -26,7 +26,7 @@ function AdminDashBoard() {
                 <Link
                     className='font-bold hover:text-cyan-600'
                     to="agendar-cita"
-                >Gestionar Citas</Link>
+                >Gestionar Reportes de Mantenimiento por Cliente</Link>
             </button>
             <UserTable users={users} token={jwt} />
         </div>

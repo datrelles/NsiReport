@@ -36,8 +36,8 @@ function UserTable({ users, token }) {
         <thead>
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Username</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Correo</th>
+            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cliente</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
           </tr>
         </thead>
@@ -69,13 +69,13 @@ function UserTable({ users, token }) {
                       onClick={() => handleNavigate(user.id)}
                       className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2"
                     >
-                      Ver Info
+                      Reportes
                     </button>
                     <button
                       onClick={() => handleDelete(user.id)}
                       className="bg-red-500 text-white px-4 py-2 rounded-lg"
                     >
-                      Eliminar
+                      Eliminar Cliente
                     </button>
                   </div>
                 )}

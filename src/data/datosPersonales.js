@@ -1,27 +1,28 @@
 export const InputsPricipalData = [
     {
-        label: 'Alerta Médica', 
-        placeholder: 'Alerta Médica',
+        label: 'Informe No. ', 
+        placeholder: 'Numero de Informe',
         type: 'text',
         name: 'alerta_medica',
         id: 'alertaMedica',
         required: true
     },
-    {
+    /* {
         label: 'Condición', 
         placeholder: 'Condición',
         type: 'text',
         name: 'condicion',
         id: 'condicion',
-        required: true
-    },
-    {
+        required: false,
+        
+    }, */
+    /* {
         label: 'Premedicación', 
         placeholder: 'Premedicacion',
         type: 'text',
         name: 'premedicacion',
         id: 'premedicacion',
-        required: true
+        required: false
     },
     {
         label: 'Alergias', 
@@ -38,7 +39,7 @@ export const InputsPricipalData = [
         name: 'anestesia',
         id: 'anestesia',
         required: true
-    },
+    }, */
     {
         label: 'Fecha', 
         placeholder: 'Fecha',
@@ -50,7 +51,7 @@ export const InputsPricipalData = [
 ]
 export const InputsInfoPersonal = [
     {
-        label: 'Nombre', 
+        label: 'Cliente', 
         placeholder: 'Nombre',
         type: 'text',
         name: 'name',
@@ -58,32 +59,32 @@ export const InputsInfoPersonal = [
         required: true
     },
     {
-        label: 'Apellido Paterno', 
-        placeholder: 'Apellido Paterno',
+        label: 'RUC', 
+        placeholder: 'RUC',
         type: 'text',
         name: 'paternal_last_name',
         id: 'lastnamePaterno',
         required: true
     },
     {
-        label: 'Apellido Materno', 
-        placeholder: 'Apellido Materno',
+        label: 'Direccion', 
+        placeholder: 'Direccion',
         type: 'text',
         name: 'maternal_last_name',
         id: 'lastnameMaterno',
         required: true
     },
     {
-        label: 'Celular', 
-        placeholder: 'Celular',
+        label: 'Atencion', 
+        placeholder: 'Contacto',
         type: 'text',
         name: 'cell_phone',
         id: 'celular',
         required: true
     },
     {
-        label: 'Tel. de Trabajo', 
-        placeholder: 'Tel. de Trabajo',
+        label: 'Telefono', 
+        placeholder: 'Telefono',
         type: 'text',
         name: 'work_phone',
         id: 'telTrabajo',
@@ -97,7 +98,7 @@ export const InputsInfoPersonal = [
         id: 'email',
         required: true
     },
-    {
+    /* {
         label: 'Edad', 
         placeholder: 'Edad',
         type: 'number',
@@ -216,26 +217,26 @@ export const InputsInfoPersonal = [
         name: 'insurance',
         id: 'aseguranza',
         required: true
-    }
+    } */
 ];
 export const InputsTutorData = [
     {
-        label: 'Nombre',
-        placeholder: 'Nombre',
+        label: 'Marca',
+        placeholder: 'Marca',
         type: 'text',
         name: 'name',
         id: 'nombre'
     },
     {
-        label: 'Edad',
-        placeholder: 'Edad',
+        label: 'Procedencia',
+        placeholder: 'Procedencia',
         type: 'number',
         name: 'age',
         id: 'edad'
     },
     {
-        label: 'Parentesco',
-        placeholder: 'Parentesco',
+        label: 'Codigo Interno',
+        placeholder: 'Codigo Interno',
         type: 'text',
         name: 'relationship',
         id: 'parentesco'
@@ -248,15 +249,15 @@ export const InputsTutorData = [
         id: 'celular'
     },
     {
-        label: 'Apellido Paterno',
-        placeholder: 'Apellido Paterno',
+        label: 'Modelo',
+        placeholder: 'Modelo',
         type: 'text',
         name: 'paternal_last_name',
         id: 'apellidoPaterno'
     },
     {
-        label: 'Apellido Materno',
-        placeholder: 'Apellido Materno',
+        label: 'Serie',
+        placeholder: 'Serie',
         type: 'text',
         name: 'maternal_last_name',
         id: 'apellidoMaterno'

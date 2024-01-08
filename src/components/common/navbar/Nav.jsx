@@ -9,7 +9,7 @@ export const Nav = () => {
 
     const Routes = [
         { name: "NOSOTROS", route: "/our" },
-        { name: "AGENDAR CITAS", route: "/agendar" },
+       /*  { name: "AGENDAR CITAS", route: "/agendar" }, */
         { name: "LABORATORIOS", route: "/lab" },
     ];
 

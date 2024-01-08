@@ -5,12 +5,12 @@ function Info() {
 
     const navigate = useNavigate();
     const buttons = [
-        { text: 'Archivos del Cliente', url: 'archivos' },
-        { text: 'Datos Personales', url: 'datos-personales' },
-        { text: 'Historial Medico', url: 'historial-medico' },
-        { text: 'Diagnostico Dental', url: 'diagnostico-dental' },
-        { text: 'Carta de Consentimiento', url: 'carta-consentimiento' },
-        { text: 'Tratamiento', url: 'tratamiento' },
+        { text: 'Reportes del Cliente', url: 'archivos' },
+        { text: 'Microscopios', url: 'datos-personales' },
+        { text: 'Centrifugas', url: 'historial-medico' },
+        { text: 'Autoclaves', url: 'diagnostico-dental' },
+        { text: 'Baño Maria', url: 'carta-consentimiento' },
+        { text: 'Reporte General', url: 'tratamiento' },
     ];
 
     const handleView = (destination) => {
